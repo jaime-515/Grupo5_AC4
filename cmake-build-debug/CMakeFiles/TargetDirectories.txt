@@ -1,0 +1,3 @@
+C:/Users/jaime/CLionProjects/Grupo5_AC4/cmake-build-debug/CMakeFiles/Grupo5_AC4.dir
+C:/Users/jaime/CLionProjects/Grupo5_AC4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jaime/CLionProjects/Grupo5_AC4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
