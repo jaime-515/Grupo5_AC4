@@ -3,6 +3,7 @@
 
 #include "Contacto.h"
 #include "LinkedList.h"
+#include <string>
 
 class Usuario {
 private:
@@ -23,31 +24,34 @@ public:
     std::string getUbicacion() const { return ubicacion; }
     std::string getIntereses() const { return intereses; }
 
-    void agregar_contacto(Contacto* contacto) {
-        contactos.insertar_datos_cola(*contacto);
+    void agregarContacto(const Contacto& contacto) {
+        contactos.insertar_datos_cola(contacto);
     }
 
-    void modificar_contacto(int pos, Contacto* contacto) {
+    void modificarContacto(int pos, const Contacto& contacto) {
         auto* aux = contactos.pos(pos);
         if (aux) {
-            aux->data = *contacto;
+            aux->data = contacto;
         }
     }
 
-    Contacto obtener_contacto(int pos) {
-        auto* aux = contactos.pos(pos);
-        if (aux) {
-            return aux->data;
-        }
-        throw std::out_of_range("Invalid contact position");
+    Contacto obtenerContacto(int pos) const {
+        return contactos.pos(pos)->data;
     }
 
-    void eliminar_contacto(int pos) {
-        contactos.eliminar_dato(pos);
+    void eliminarContacto(int pos) {
+        contactos.quitar_entre_nodos(pos);
     }
 
     int getContactosSize() const {
         return contactos.get_size();
+    }
+
+    void mostrarContactos() const {
+        for (int i = 0; i < contactos.get_size(); i++) {
+            Contacto contacto = contactos.pos(i)->data;
+            std::cout << "Contacto " << i + 1 << ": " << contacto.getNombre() << ", " << contacto.getEdad() << ", " << contacto.getGenero() << ", " << contacto.getUbicacion() << ", " << contacto.getIntereses() << std::endl;
+        }
     }
 };
 

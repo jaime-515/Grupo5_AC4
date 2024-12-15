@@ -1,7 +1,3 @@
-//
-// Created by jaime on 12/12/2024.
-//
-
 #ifndef CONTACTO_H
 #define CONTACTO_H
 
